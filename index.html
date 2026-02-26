@@ -4,29 +4,88 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bidhan Timilsina | Portfolio</title>
+  <link rel="icon" type="image/x-icon" href="/logo.ico">
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 </head>
 <body>
 
+  <!-- Scroll progress -->
+  <div id="progress-bar"></div>
+
   <!-- Custom cursor -->
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- ─── FLOATING NAV ─── -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <a href="#hero" class="nav-logo" aria-label="Back to top">
+      <img src="/logo.ico" alt="Bidhan logo" class="nav-logo-img"><span class="logo-dot"></span>
+    </a>
+    <div class="nav-links-desktop" style="display:flex;align-items:center;gap:4px;">
+      <a href="#hero"      class="nav-link active">Home     <span class="nav-shimmer"></span></a>
+      <a href="#about"     class="nav-link">About    <span class="nav-shimmer"></span></a>
+      <a href="#education" class="nav-link">Education<span class="nav-shimmer"></span></a>
+      <a href="#skills"    class="nav-link">Skills   <span class="nav-shimmer"></span></a>
+      <a href="#projects"  class="nav-link">Projects <span class="nav-shimmer"></span></a>
+    </div>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile dropdown -->
+  <div class="nav-mobile-menu" id="navMobileMenu" role="menu">
+    <a href="#hero"      class="nav-mobile-link active" role="menuitem"><span class="link-icon">🏠</span>Home</a>
+    <a href="#about"     class="nav-mobile-link" role="menuitem"><span class="link-icon">👤</span>About Me</a>
+    <a href="#education" class="nav-mobile-link" role="menuitem"><span class="link-icon">🎓</span>Education</a>
+    <a href="#skills"    class="nav-mobile-link" role="menuitem"><span class="link-icon">⚡</span>Skills</a>
+    <a href="#projects"  class="nav-mobile-link" role="menuitem"><span class="link-icon">🚀</span>Projects</a>
+  </div>
+  <!-- ─── END NAV ─── -->
+
+  <!-- Star canvas -->
+  <canvas id="stars"></canvas>
 
   <!-- BG blobs -->
   <div class="blob blob-1"></div>
   <div class="blob blob-2"></div>
   <div class="blob blob-3"></div>
 
+  <!-- Background watermark logo -->
+  <div class="bg-logo">
+    <img src="/logo.ico" alt="" aria-hidden="true">
+  </div>
+
   <main>
 
     <!-- HERO -->
-    <div class="hero">
+    <div class="hero" id="hero">
       <div class="hero-text">
         <div class="greeting">Available for opportunities</div>
-        <h1>Bidhan<br>Timilsina</h1>
-        <p class="tagline">Computer Engineering Student · Developer · Builder of real-world things</p>
-        <div class="location-badge">
+
+        <h1 data-text="Bidhan&#10;Timilsina">Bidhan<br>Timilsina</h1>
+
+        <p class="tagline">
+          <span class="typed-text" id="typed"></span><span class="cursor-blink"></span>
+        </p>
+
+        <a href="https://www.google.com/maps/place/Pokhara,+Nepal" target="_blank" rel="noopener" class="location-badge">
           📍 <span>Pokhara, Nepal</span> &nbsp;·&nbsp; Kathmandu University
+        </a>
+
+        <div class="stats-row">
+          <div class="stat">
+            <div class="stat-num" data-target="2"><span>0</span>+</div>
+            <div class="stat-label">Projects Built</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num" data-target="5"><span>0</span>+</div>
+            <div class="stat-label">Technologies</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num" data-target="3"><span>0</span>+</div>
+            <div class="stat-label">Years Coding</div>
+          </div>
         </div>
 
         <div class="socials">
@@ -50,9 +109,8 @@
           </a>
         </div>
 
-      </div><!-- end hero-text -->
+      </div>
 
-      <!-- Photo Slideshow -->
       <div class="photo-frame">
         <div class="photo-inner">
           <img class="slide active" src="/1.jpg" alt="Bidhan 1">
@@ -64,7 +122,7 @@
     </div>
 
     <!-- ABOUT -->
-    <section class="reveal">
+    <section id="about" class="reveal">
       <div class="section-label">About Me</div>
       <div class="about-card">
         <p>I'm a passionate Computer Engineering student from the mountains of <strong>Pokhara, Nepal</strong> — currently pursuing my Bachelor's degree at Kathmandu University. I love building things that matter: from real-time network applications to interactive software, I thrive at the crossroads of systems thinking and creative development. My foundation is strong in both low-level programming and modern web technologies, and I'm always hungry to learn more.</p>
@@ -72,7 +130,7 @@
     </section>
 
     <!-- EDUCATION -->
-    <section class="reveal">
+    <section id="education" class="reveal">
       <div class="section-label">Education</div>
       <div class="edu-timeline">
 
@@ -107,27 +165,27 @@
     </section>
 
     <!-- SKILLS -->
-    <section class="reveal">
-      <div class="section-label">Skills & Technologies</div>
+    <section id="skills" class="reveal">
+      <div class="section-label">Skills &amp; Technologies</div>
       <div class="skills-grid">
         <div class="skill-pill c1"><span class="dot"></span>C / C++</div>
         <div class="skill-pill c2"><span class="dot"></span>JavaScript</div>
-        <div class="skill-pill c1"><span class="dot"></span>Qt & QML</div>
+        <div class="skill-pill c1"><span class="dot"></span>Qt &amp; QML</div>
         <div class="skill-pill c3"><span class="dot"></span>Web Development</div>
-        <div class="skill-pill c4"><span class="dot"></span>Git & GitHub</div>
+        <div class="skill-pill c4"><span class="dot"></span>Git &amp; GitHub</div>
         <div class="skill-pill c2"><span class="dot"></span>Networking</div>
-        <div class="skill-pill c3"><span class="dot"></span>HTML & CSS</div>
+        <div class="skill-pill c3"><span class="dot"></span>HTML &amp; CSS</div>
         <div class="skill-pill c4"><span class="dot"></span>Problem Solving</div>
       </div>
     </section>
 
     <!-- PROJECTS -->
-    <section class="reveal">
+    <section id="projects" class="reveal">
       <div class="section-label">Projects</div>
       <div class="projects-grid">
 
         <div class="project-card">
-          <a href="/lan-messenger-installer.exe" download class="download-btn" title="Download LAN Messenger Installer">
+          <a href="/lan-messenger-installer.exe" download class="download-btn" title="Download LAN Messenger">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
               <polyline points="7 10 12 15 17 10"/>
@@ -141,7 +199,7 @@
         </div>
 
         <div class="project-card">
-          <a href="/gamebox-installer.exe" download class="download-btn" title="Download Game Box Installer">
+          <a href="/gamebox-installer.exe" download class="download-btn" title="Download Game Box">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
               <polyline points="7 10 12 15 17 10"/>
@@ -150,7 +208,7 @@
           </a>
           <span class="proj-emoji">🎮</span>
           <h3>Game Box Project</h3>
-          <p>A multi-game collection developed for the ENGG-102 engineering course. Demonstrates modular software design and interactive UI fundamentals.</p>
+          <p>A multi-game collection built with C++ and Raylib. Demonstrates modular software design, game loops, and interactive rendering fundamentals.</p>
           <span class="proj-tag">C++ · Raylib</span>
         </div>
 
