@@ -22,7 +22,7 @@ body {
   cursor: none;
 }
 
-/* Custom cursor */
+/* Custom cursor - desktop only */
 .cursor {
   position: fixed;
   width: 12px; height: 12px;
@@ -44,6 +44,11 @@ body {
   transform: translate(-50%, -50%);
   transition: transform 0.18s ease, width 0.3s, height 0.3s;
   mix-blend-mode: screen;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  body { cursor: auto; }
+  .cursor, .cursor-ring { display: none; }
 }
 
 /* Noise overlay */
@@ -546,11 +551,86 @@ footer {
   transform: translateY(0);
 }
 
-/* Responsive */
-@media (max-width: 640px) {
-  .hero { grid-template-columns: 1fr; }
-  .photo-frame { width: 120px; height: 120px; justify-self: start; }
+/* ======= RESPONSIVE / MOBILE ======= */
+
+/* Tablet */
+@media (max-width: 768px) {
+  main { padding: 40px 20px 80px; }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 50px 0 40px;
+    gap: 32px;
+  }
+
+  /* Move photo above text on mobile */
+  .photo-frame {
+    width: 130px;
+    height: 130px;
+    order: -1;
+  }
+
+  h1 { font-size: clamp(38px, 10vw, 56px); }
+
+  .tagline { font-size: 15px; }
+
+  .socials {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .social-btn { padding: 8px 14px; font-size: 12px; }
+
   .projects-grid { grid-template-columns: 1fr; }
-  .edu-card { grid-template-columns: auto 1fr; }
+
+  .edu-card {
+    grid-template-columns: auto 1fr;
+    gap: 14px;
+    padding: 18px 20px;
+  }
   .edu-badge { display: none; }
+
+  .about-card { padding: 24px; }
+  .about-card p { font-size: 14px; }
+
+  section { padding: 40px 0 0; }
+
+  footer {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+}
+
+/* Phone */
+@media (max-width: 480px) {
+  main { padding: 28px 16px 60px; }
+
+  .greeting { font-size: 11px; letter-spacing: 2px; }
+
+  h1 { font-size: clamp(34px, 11vw, 48px); }
+
+  .location-badge { font-size: 11px; padding: 5px 12px; }
+
+  .social-btn span { display: none; }
+  .social-btn { padding: 10px; border-radius: 50%; width: 40px; height: 40px; justify-content: center; }
+  .socials { gap: 10px; }
+
+  .skill-pill { font-size: 12px; padding: 8px 14px; }
+
+  .project-card { padding: 22px; }
+  .project-card h3 { font-size: 16px; }
+  .proj-emoji { font-size: 26px; }
+
+  .edu-icon { width: 40px; height: 40px; font-size: 18px; }
+  .edu-info h3 { font-size: 14px; }
+  .edu-info p { font-size: 12px; }
+
+  .section-label { font-size: 10px; letter-spacing: 3px; }
+}
+
+/* Hide cursor on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  body { cursor: auto; }
+  .cursor, .cursor-ring { display: none; }
 }
