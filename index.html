@@ -3,44 +3,170 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bidhan | Portfolio</title>
+  <title>Bidhan Timilsina | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>Hi, I'm Bidhan 👋</h1>
-      <p class="tagline">Computer Engineering Student | Developer</p>
-    </header>
 
-    <section class="about">
-      <h2>About Me</h2>
-      <p>
-        I am a passionate developer from Nepal interested in software development,
-        networking, and building real-world applications.
-      </p>
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- BG blobs -->
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <main>
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-text">
+        <div class="greeting">Available for opportunities</div>
+        <h1>Bidhan<br>Timilsina</h1>
+        <p class="tagline">Computer Engineering Student · Developer · Builder of real-world things</p>
+        <div class="location-badge">
+          📍 <span>Pokhara, Nepal</span> &nbsp;·&nbsp; Kathmandu University
+        </div>
+
+        <div class="socials">
+          <a href="https://github.com/Bidhan318" target="_blank" rel="noopener" class="social-btn github">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+            </svg>
+            <span>GitHub</span>
+          </a>
+          <a href="https://www.instagram.com/bidhan_318/" target="_blank" rel="noopener" class="social-btn instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+            </svg>
+            <span>Instagram</span>
+          </a>
+          <a href="https://www.facebook.com/Bidhan83" target="_blank" rel="noopener" class="social-btn facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.791-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.887v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
+            </svg>
+            <span>Facebook</span>
+          </a>
+        </div>
+
+      </div><!-- end hero-text -->
+
+      <!-- Photo Slideshow -->
+      <div class="photo-frame">
+        <div class="photo-inner">
+          <img class="slide active" src="/1.jpg" alt="Bidhan 1">
+          <img class="slide" src="/2.jpg" alt="Bidhan 2">
+          <img class="slide" src="/3.jpg" alt="Bidhan 3">
+          <img class="slide" src="/4.jpg" alt="Bidhan 4">
+        </div>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section class="reveal">
+      <div class="section-label">About Me</div>
+      <div class="about-card">
+        <p>I'm a passionate Computer Engineering student from the mountains of <strong>Pokhara, Nepal</strong> — currently pursuing my Bachelor's degree at Kathmandu University. I love building things that matter: from real-time network applications to interactive software, I thrive at the crossroads of systems thinking and creative development. My foundation is strong in both low-level programming and modern web technologies, and I'm always hungry to learn more.</p>
+      </div>
     </section>
 
-    <section class="skills">
-      <h2>Skills</h2>
-      <ul>
-        <li>C / C++</li>
-        <li>JavaScript</li>
-        <li>Qt & QML</li>
-        <li>Git & GitHub</li>
-        <li>Web Development</li>
-      </ul>
+    <!-- EDUCATION -->
+    <section class="reveal">
+      <div class="section-label">Education</div>
+      <div class="edu-timeline">
+
+        <div class="edu-card">
+          <div class="edu-icon uni">🎓</div>
+          <div class="edu-info">
+            <h3>B.E. Computer Engineering</h3>
+            <p><a href="https://ku.edu.np" target="_blank" rel="noopener" class="edu-link">Kathmandu University</a> &nbsp;·&nbsp; Dhulikhel, Nepal</p>
+          </div>
+          <div class="edu-badge">Current</div>
+        </div>
+
+        <div class="edu-card">
+          <div class="edu-icon school">📚</div>
+          <div class="edu-info">
+            <h3>+2 Science (Grade 11–12)</h3>
+            <p><a href="https://gbs.edu.np" target="_blank" rel="noopener" class="edu-link">GBS Pokhara</a> &nbsp;·&nbsp; Pokhara, Nepal</p>
+          </div>
+          <div class="edu-badge past">Completed</div>
+        </div>
+
+        <div class="edu-card">
+          <div class="edu-icon school">🏫</div>
+          <div class="edu-info">
+            <h3>SEE / Grade 10</h3>
+            <p><a href="https://gbs.edu.np" target="_blank" rel="noopener" class="edu-link">GBS Pokhara</a> &nbsp;·&nbsp; Pokhara, Nepal</p>
+          </div>
+          <div class="edu-badge past">Completed</div>
+        </div>
+
+      </div>
     </section>
 
-    <section class="projects">
-      <h2>Projects</h2>
-      <p>🔹 LAN Messenger (Qt C++)</p>
-      <p>🔹 Game Box Project (ENGG-102)</p>
+    <!-- SKILLS -->
+    <section class="reveal">
+      <div class="section-label">Skills & Technologies</div>
+      <div class="skills-grid">
+        <div class="skill-pill c1"><span class="dot"></span>C / C++</div>
+        <div class="skill-pill c2"><span class="dot"></span>JavaScript</div>
+        <div class="skill-pill c1"><span class="dot"></span>Qt & QML</div>
+        <div class="skill-pill c3"><span class="dot"></span>Web Development</div>
+        <div class="skill-pill c4"><span class="dot"></span>Git & GitHub</div>
+        <div class="skill-pill c2"><span class="dot"></span>Networking</div>
+        <div class="skill-pill c3"><span class="dot"></span>HTML & CSS</div>
+        <div class="skill-pill c4"><span class="dot"></span>Problem Solving</div>
+      </div>
     </section>
 
+    <!-- PROJECTS -->
+    <section class="reveal">
+      <div class="section-label">Projects</div>
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <a href="/lan-messenger-installer.exe" download class="download-btn" title="Download LAN Messenger Installer">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+          </a>
+          <span class="proj-emoji">💬</span>
+          <h3>LAN Messenger</h3>
+          <p>A real-time local network messaging application built with Qt C++. Supports peer-to-peer communication across devices on the same LAN using socket programming.</p>
+          <span class="proj-tag">Qt · C++ · Networking</span>
+        </div>
+
+        <div class="project-card">
+          <a href="/gamebox-installer.exe" download class="download-btn" title="Download Game Box Installer">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+          </a>
+          <span class="proj-emoji">🎮</span>
+          <h3>Game Box Project</h3>
+          <p>A multi-game collection developed for the ENGG-102 engineering course. Demonstrates modular software design and interactive UI fundamentals.</p>
+          <span class="proj-tag">C++ · ENGG-102</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FOOTER -->
     <footer>
-      <p>© 2026 Bidhan | All Rights Reserved</p>
+      <span>© 2026 Bidhan Timilsina · Pokhara, Nepal</span>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <div class="footer-dot"></div>
+        <span>Open to opportunities</span>
+      </div>
     </footer>
-  </div>
+
+  </main>
 
   <script type="module" src="/src/main.js"></script>
 </body>
