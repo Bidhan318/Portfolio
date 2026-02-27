@@ -212,40 +212,56 @@
     </section>
 
     <!-- PROJECTS -->
-    <section id="projects" class="reveal">
-      <div class="section-label">Projects</div>
-      <div class="projects-grid">
+<section id="projects" class="reveal">
+  <div class="section-label">Projects</div>
+  <div class="projects-grid" id="projects3d">
 
-        <div class="project-card">
-          <a href="/lan-messenger-installer.exe" download class="download-btn" title="Download LAN Messenger">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-              <polyline points="7 10 12 15 17 10"/>
-              <line x1="12" y1="15" x2="12" y2="3"/>
-            </svg>
-          </a>
+    <div class="proj-flip-wrap">
+      <div class="proj-flip-inner">
+        <div class="proj-face proj-front">
           <span class="proj-emoji">💬</span>
           <h3>LAN Messenger</h3>
-          <p>A real-time local network messaging application built with Qt C++. Supports peer-to-peer communication across devices on the same LAN using socket programming.</p>
+          <p>Real-time local network messaging app</p>
           <span class="proj-tag">Qt · C++ · Networking</span>
+          <span class="proj-hint">Hover to reveal →</span>
         </div>
-
-        <div class="project-card">
-          <a href="/gamebox-installer.exe" download class="download-btn" title="Download Game Box">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-              <polyline points="7 10 12 15 17 10"/>
-              <line x1="12" y1="15" x2="12" y2="3"/>
-            </svg>
-          </a>
-          <span class="proj-emoji">🎮</span>
-          <h3>Game Box Project</h3>
-          <p>A multi-game collection built with C++ and Raylib. Demonstrates modular software design, game loops, and interactive rendering fundamentals.</p>
-          <span class="proj-tag">C++ · Raylib</span>
+        <div class="proj-face proj-back">
+          <h4>LAN Messenger</h4>
+          <ul>
+            <li>Peer-to-peer socket communication</li>
+            <li>Real-time messaging over LAN</li>
+            <li>Built with Qt C++ framework</li>
+            <li>Cross-device on same network</li>
+          </ul>
+          <a href="/lan-messenger-installer.exe" download class="proj-download">↓ Download .exe</a>
         </div>
-
       </div>
-    </section>
+    </div>
+
+    <div class="proj-flip-wrap">
+      <div class="proj-flip-inner">
+        <div class="proj-face proj-front">
+          <span class="proj-emoji">🎮</span>
+          <h3>Game Box</h3>
+          <p>Multi-game collection & engine</p>
+          <span class="proj-tag">C++ · Raylib</span>
+          <span class="proj-hint">Hover to reveal →</span>
+        </div>
+        <div class="proj-face proj-back proj-back-b">
+          <h4>Game Box Project</h4>
+          <ul>
+            <li>Modular multi-game architecture</li>
+            <li>Custom game loop implementation</li>
+            <li>Interactive rendering with Raylib</li>
+            <li>Demonstrates software design</li>
+          </ul>
+          <a href="/gamebox-installer.exe" download class="proj-download">↓ Download .exe</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
 
     <!-- FOOTER -->
     <footer>

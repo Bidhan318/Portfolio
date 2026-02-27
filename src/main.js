@@ -333,3 +333,20 @@ function updateActiveLink() {
 
 window.addEventListener('scroll', updateActiveLink, { passive: true })
 updateActiveLink()
+
+// ── Project cards 3D scene tilt on mouse
+const proj3d = document.getElementById('projects3d')
+if (proj3d) {
+  document.getElementById('projects').addEventListener('mousemove', e => {
+    const rect = document.getElementById('projects').getBoundingClientRect()
+    const cx = rect.left + rect.width / 2
+    const cy = rect.top + rect.height / 2
+    const rx = -(e.clientY - cy) / rect.height * 10
+    const ry =  (e.clientX - cx) / rect.width  * 10
+    proj3d.style.transform = `perspective(1200px) rotateX(${rx}deg) rotateY(${ry}deg)`
+  })
+  document.getElementById('projects').addEventListener('mouseleave', () => {
+    proj3d.style.transform = 'perspective(1200px) rotateX(0deg) rotateY(0deg)'
+    proj3d.style.transition = 'transform 0.6s ease'
+  })
+}
