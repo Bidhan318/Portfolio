@@ -1,4 +1,84 @@
 import './style.css'
+import anime from 'animejs'
+// ── LOADER ──────────────────────────────────────
+ 
+
+// Spawn particles
+const particlesEl = document.getElementById('particles')
+const PARTICLE_COUNT = 14
+const pEls = Array.from({ length: PARTICLE_COUNT }, (_, i) => {
+  const p = document.createElement('div')
+  p.className = 'particle'
+  const rad = (i / PARTICLE_COUNT) * Math.PI * 2
+  const r = 70 + Math.random() * 20
+  p.style.left = (130 + Math.cos(rad) * r) + 'px'
+  p.style.top  = (130 + Math.sin(rad) * r) + 'px'
+  particlesEl.appendChild(p)
+  return p
+})
+
+const progressPct  = document.getElementById('progressPct')
+const progressFill = document.getElementById('progressFill')
+const logoImg      = document.getElementById('logoImg')
+
+// Progress counter animation
+anime({ targets: progressFill, width: ['0%','100%'], duration: 2800, easing: 'easeInOutQuart',
+  update: a => { progressPct.textContent = Math.round(a.progress) + '%' }
+})
+
+const tl = anime.timeline({ easing: 'easeOutExpo' })
+
+tl
+.add({ targets: '.progress-pct', opacity: [0,1], duration: 400 }, 0)
+.add({ targets: '#ringOuter', opacity:[0,1], scale:[0.3,1], rotate:[0,360], duration:900, easing:'easeOutBack(1.4)' }, 100)
+.add({ targets: '#ringScan', opacity:[0,0.9], rotate:[0,540], duration:1100, easing:'easeOutCubic' }, 400)
+.add({ targets: '#logoImg', opacity:[0,1], scale:[0.1,1.12,1], duration:700, easing:'easeOutBack(2)',
+  update: a => {
+    const p = a.progress / 100
+    logoImg.style.filter = `drop-shadow(0 0 ${Math.round(p*28)}px rgba(245,158,11,${0.4+p*0.5})) brightness(${1+p*0.15})`
+  }
+}, 650)
+.add({ targets: '.halo', opacity:[0,0.8,0], scale:[0.8,1.5], duration:900, easing:'easeOutCubic' }, 900)
+.add({ targets: '.halo-2', opacity:[0,0.5,0], scale:[0.6,1.8], duration:1200, easing:'easeOutCubic' }, 1000)
+.add({ targets: pEls, opacity:[0,1,0], scale:[0,1.6,0], delay:anime.stagger(40), duration:700, easing:'easeOutCubic' }, 950)
+.add({ targets: '#nameText .char', opacity:[0,1], translateY:[40,0], rotateX:[-90,0], delay:anime.stagger(60), duration:500, easing:'easeOutBack(1.6)' }, 1100)
+.add({ targets: '#lineBar', opacity:[0,1], width:[0,180], duration:500, easing:'easeOutExpo' }, 1500)
+.add({ targets: '#taglineText', opacity:[0,0.7], scaleX:[0.4,1], duration:600, easing:'easeOutBack(1.3)' }, 1700)
+.add({ targets: '#nameText', backgroundPosition:['0% center','260% center'], duration:1000, easing:'easeInOutQuad' }, 2000)
+.add({ targets: '#ringOuter', rotate:[0,720], opacity:[1,0], scale:[1,1.4], duration:600, easing:'easeInCubic' }, 2900)
+.add({ targets: '#ringScan', opacity:[0.9,0], scale:[1,0.4], duration:400, easing:'easeInQuad' }, 2950)
+.add({ targets: '#nameText .char', opacity:[1,0], translateY:[0,-30], delay:anime.stagger(30,{direction:'reverse'}), duration:350, easing:'easeInQuad' }, 2900)
+.add({ targets: ['#taglineText','#lineBar'], opacity:[null,0], translateY:[0,-20], duration:300, easing:'easeInQuad' }, 2920)
+.add({ targets: '#logoImg', scale:[1,0], opacity:[1,0], duration:500, easing:'easeInBack(3)',
+  update: a => {
+    const p = 1 - a.progress/100
+    logoImg.style.filter = `drop-shadow(0 0 ${Math.round(p*30)}px rgba(245,158,11,${p*0.9})) brightness(${1+p*0.1})`
+  }
+}, 3000)
+.add({ targets: '.progress-wrap', opacity:[1,0], translateY:[0,12], duration:300, easing:'easeInQuad' }, 2900)
+.add({ targets: '#flash', opacity:[0,0.18,0], duration:500, easing:'easeInOutQuad' }, 3200)
+.add({ targets: '#bt-loader', opacity:[1,0], scale:[1,0.96], duration:500, easing:'easeInQuad',
+  complete: () => {
+    document.getElementById('bt-loader').style.display = 'none'
+    document.getElementById('bt-loader').style.pointerEvents = 'none'
+  }
+}, 3300)
+
+// Continuous ring spin
+anime({ targets: '#ringOuter', rotate:360, duration:2400, loop:true, easing:'linear', delay:1000 })
+
+// Continuous logo pulse
+setTimeout(() => {
+  anime({ targets: '#logoImg', scale:[1,1.05,1], duration:1600, loop:true, easing:'easeInOutSine',
+    update: a => {
+      const pulse = Math.sin(a.progress / 100 * Math.PI)
+      const glow = 18 + Math.round(pulse * 14)
+      logoImg.style.filter = `drop-shadow(0 0 ${glow}px rgba(245,158,11,${0.55+pulse*0.35})) brightness(${1.08+pulse*0.08})`
+    }
+  })
+}, 1600)
+
+// ── END LOADER ───────────────────────────────────
 
 // ── Scroll progress bar ────────────────────────────────────────
 const bar = document.getElementById('progress-bar')
@@ -203,14 +283,18 @@ document.addEventListener('click', e => {
   }
 })
 
-// Active section highlight via IntersectionObserver
+// Active section highlight via scroll position
 const sections = [
-  { id: 'hero',      selector: '.hero' },
+  { id: 'home',      selector: '#home' },
   { id: 'about',     selector: '#about' },
   { id: 'education', selector: '#education' },
   { id: 'skills',    selector: '#skills' },
   { id: 'projects',  selector: '#projects' },
 ]
+
+const sectionEls = sections.map(s =>
+  document.querySelector(s.selector) || document.getElementById(s.id)
+).filter(Boolean)
 
 function setActiveLink(id) {
   navLinks.forEach(link => {
@@ -219,21 +303,33 @@ function setActiveLink(id) {
   })
 }
 
-const sectionObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const matchedId = sections.find(s =>
-        entry.target.matches(s.selector) || entry.target.id === s.id
-      )
-      if (matchedId) setActiveLink(matchedId.id)
+function updateActiveLink() {
+  const scrollY = window.scrollY
+  const windowH = window.innerHeight
+
+  // At bottom of page, always activate last section
+  if (window.innerHeight + scrollY >= document.body.scrollHeight - 10) {
+    setActiveLink(sections[sections.length - 1].id)
+    return
+  }
+
+  let current = sections[0].id
+  sectionEls.forEach((el, i) => {
+    const nextEl = sectionEls[i + 1]
+    const sectionTop = el.offsetTop - 100
+    const sectionBottom = nextEl
+      ? nextEl.offsetTop - 100
+      : el.offsetTop + el.offsetHeight
+
+    const middle = sectionTop + (sectionBottom - sectionTop) * 0.5
+
+    if (scrollY >= middle || scrollY >= sectionTop) {
+      current = sections[i].id
     }
   })
-}, {
-  rootMargin: '-30% 0px -60% 0px',
-  threshold: 0
-})
 
-sections.forEach(s => {
-  const el = document.querySelector(s.selector) || document.getElementById(s.id)
-  if (el) sectionObserver.observe(el)
-})
+  setActiveLink(current)
+}
+
+window.addEventListener('scroll', updateActiveLink, { passive: true })
+updateActiveLink()

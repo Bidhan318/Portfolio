@@ -8,6 +8,38 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 </head>
 <body>
+   <!-- ═══ LOADER ═══ -->
+  <div id="bt-loader">
+    <div class="bg-layer"></div>
+
+    <div id="loader-inner">
+      <div class="logo-wrap">
+        <div class="halo-2"></div>
+        <div class="halo"></div>
+        <div class="ring-outer" id="ringOuter"></div>
+        <div class="ring-inner"></div>
+        <div class="ring-scan" id="ringScan"></div>
+        <div class="particles" id="particles"></div>
+        <img class="logo-img" id="logoImg" src="/logo.ico" alt="BT" />
+      </div>
+
+      <div class="name-block">
+        <div class="name-text" id="nameText">
+          <span class="char">B</span><span class="char">I</span><span class="char">D</span><span class="char">H</span><span class="char">A</span><span class="char">N</span>
+        </div>
+        <div class="line-bar" id="lineBar"></div>
+        <div class="tagline-text" id="taglineText">Portfolio&nbsp;&nbsp;·&nbsp;&nbsp;2026</div>
+      </div>
+    </div>
+
+    <div class="progress-wrap">
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="progress-pct" id="progressPct">0%</div>
+    </div>
+
+    <div class="flash" id="flash"></div>
+  </div>
+  <!-- ═══ END LOADER ═══ -->
 
   <!-- Scroll progress -->
   <div id="progress-bar"></div>
@@ -18,11 +50,11 @@
 
   <!-- ─── FLOATING NAV ─── -->
   <nav id="navbar" role="navigation" aria-label="Main navigation">
-    <a href="#hero" class="nav-logo" aria-label="Back to top">
+    <a href="#home" class="nav-logo" aria-label="Back to top">
       <img src="/logo.ico" alt="Bidhan logo" class="nav-logo-img"><span class="logo-dot"></span>
     </a>
     <div class="nav-links-desktop" style="display:flex;align-items:center;gap:4px;">
-      <a href="#hero"      class="nav-link active">Home     <span class="nav-shimmer"></span></a>
+      <a href="#home"      class="nav-link active">Home     <span class="nav-shimmer"></span></a>
       <a href="#about"     class="nav-link">About    <span class="nav-shimmer"></span></a>
       <a href="#education" class="nav-link">Education<span class="nav-shimmer"></span></a>
       <a href="#skills"    class="nav-link">Skills   <span class="nav-shimmer"></span></a>
@@ -35,7 +67,7 @@
 
   <!-- Mobile dropdown -->
   <div class="nav-mobile-menu" id="navMobileMenu" role="menu">
-    <a href="#hero"      class="nav-mobile-link active" role="menuitem"><span class="link-icon">🏠</span>Home</a>
+    <a href="#home"      class="nav-mobile-link active" role="menuitem"><span class="link-icon">🏠</span>Home</a>
     <a href="#about"     class="nav-mobile-link" role="menuitem"><span class="link-icon">👤</span>About Me</a>
     <a href="#education" class="nav-mobile-link" role="menuitem"><span class="link-icon">🎓</span>Education</a>
     <a href="#skills"    class="nav-mobile-link" role="menuitem"><span class="link-icon">⚡</span>Skills</a>
@@ -59,7 +91,7 @@
   <main>
 
     <!-- HERO -->
-    <div class="hero" id="hero">
+    <div class="hero" id="home">
       <div class="hero-text">
         <div class="greeting">Available for opportunities</div>
 
