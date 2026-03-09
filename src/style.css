@@ -1238,3 +1238,10 @@ section[id] {
                rgba(0,0,0,0.6) 70%,
                transparent 90%);
 }
+
+/* Hide robot cloud on mobile */
+@media (max-width: 768px) {
+  #robot-cloud-gif{
+    display: none;
+  }
+}
